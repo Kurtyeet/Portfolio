@@ -41,3 +41,147 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// ===== LIGHTBOX =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+
+if (lightbox) {
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const item = galleryItems[index];
+    const img = item.querySelector('img');
+    const caption = item.querySelector('.gallery-caption').textContent;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.textContent = caption;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function navigateLightbox(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = galleryItems.length - 1;
+    if (currentIndex >= galleryItems.length) currentIndex = 0;
+    openLightbox(currentIndex);
+  }
+
+  // Click on gallery items
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', () => openLightbox(index));
+  });
+
+  // Close button
+  lightboxClose.addEventListener('click', closeLightbox);
+
+  // Click outside image
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Navigation buttons
+  lightboxPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateLightbox(-1);
+  });
+
+  lightboxNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navigateLightbox(1);
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+  });
+}
+
+// ===== LOADING SCREEN =====
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add('hidden');
+    }, 1000);
+  }
+});
+
+// ===== SCROLL TO TOP =====
+const scrollTopBtn = document.getElementById('scrollTop');
+
+if (scrollTopBtn) {
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 500) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  });
+
+  scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// ===== PROFILE VIDEO TOGGLE WITH BLOOM =====
+const profileContainer = document.getElementById('profileContainer');
+const profileVideo = document.getElementById('profileVideo');
+const profileImage = document.getElementById('profileImage');
+const playIndicator = document.getElementById('playIndicator');
+
+if (profileContainer && profileVideo) {
+  let isAnimating = false;
+
+  profileContainer.addEventListener('click', () => {
+    if (isAnimating) return;
+
+    const isVideoActive = profileContainer.classList.contains('video-active');
+    
+    if (isVideoActive) {
+      // Stop video, show image
+      isAnimating = true;
+      profileContainer.classList.add('bloom-reverse');
+      profileContainer.classList.remove('video-active');
+      profileContainer.classList.remove('blooming');
+      
+      setTimeout(() => {
+        profileVideo.pause();
+        profileVideo.currentTime = 0;
+        profileContainer.classList.remove('bloom-reverse');
+        isAnimating = false;
+      }, 600);
+    } else {
+      // Bloom animation then play video
+      isAnimating = true;
+      profileContainer.classList.add('blooming');
+      
+      // After bloom animation, show video
+      setTimeout(() => {
+        profileVideo.play();
+        profileContainer.classList.add('video-active');
+        isAnimating = false;
+      }, 800);
+    }
+  });
+
+  // Pause video when it ends
+  profileVideo.addEventListener('ended', () => {
+    profileContainer.classList.remove('video-active');
+    profileContainer.classList.remove('blooming');
+  });
+}

@@ -3,22 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="John Kurt S. Santander - BSIT Graduate & Aspiring Virtual Assistant. Specializing in digital content creation, copywriting, and administrative support." />
+  <meta name="keywords" content="virtual assistant, BSIT, copywriting, admin support, Philippines, portfolio" />
+  <meta name="author" content="John Kurt S. Santander" />
+  <meta property="og:title" content="John Kurt S. Santander | Portfolio" />
+  <meta property="og:description" content="BSIT Graduate & Aspiring Virtual Assistant" />
+  <meta property="og:image" content="Profile Website.png" />
+  <meta property="og:type" content="website" />
   <title>John Kurt S. Santander | Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%232D6A4F' width='100' height='100' rx='20'/><text x='50' y='65' font-size='45' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>JK</text></svg>" />
+  <link rel="apple-touch-icon" href="Profile Website.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="#" class="logo"><span class="highlight">JK</span> Santander</a>
       <ul class="nav-links" id="navLinks">
-        <ul class="nav-links" id="navLinks">
         <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li> <!-- INSERT THIS LINE -->
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#education" class="nav-link">Education</a></li>
@@ -34,8 +50,41 @@
   <!-- Hero -->
   <section class="hero" id="hero">
     <div class="container hero-content">
-      <div class="hero-image">
-        <img src="Profile.jpg" alt="John Kurt S. Santander" />
+      <div class="profile-flower-container" id="profileContainer">
+        <!-- Flower Ring -->
+        <div class="flower-ring">
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+          <div class="petal"></div>
+        </div>
+        <!-- Bloom Petals (expand on click) -->
+        <div class="bloom-container" id="bloomContainer">
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+          <div class="bloom-petal"></div>
+        </div>
+        <!-- Profile Image -->
+        <img src="Profile Website.png" alt="John Kurt S. Santander" class="hero-image" id="profileImage" />
+        <!-- Video (hidden by default) -->
+        <video src="Live Profile.mp4" class="hero-video" id="profileVideo" muted loop playsinline></video>
+        <!-- Play Indicator -->
+        <div class="play-indicator" id="playIndicator">
+          <i class="fas fa-play"></i>
+        </div>
       </div>
       <div class="hero-text">
         <p class="hero-greeting">Hello, I'm</p>
@@ -54,6 +103,30 @@
         <div class="hero-social">
           <a href="https://www.linkedin.com/in/john-kurt-santander-762aa2280" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
           <a href="mailto:santander.johnkurt@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Counter -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Projects Completed</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5</span>
+          <span class="stat-label">Certifications</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Remote Ready</span>
         </div>
       </div>
     </div>
@@ -118,9 +191,9 @@
   <section class="section" id="projects">
     <div class="container">
       <h2 class="section-title">Featured Projects & Case Studies</h2>
-      <div class="experience-card" style="margin-bottom: 2rem;">
+      <div class="experience-card hotel-themed" style="margin-bottom: 2rem;">
         <div class="exp-header">
-          <h3>Web-Based Hotel Reservation System</h3>
+          <h3><i class="fas fa-hotel" style="margin-right: 8px;"></i>Web-Based Hotel Reservation System</h3>
           <p class="exp-meta">Full-Stack Developer &amp; Technical Documentarian</p>
         </div>
         <p style="margin-bottom: 1rem; color: #555;">Developed a responsive local-host web application to streamline room bookings and guest data management. To ensure a frictionless handover, I authored a comprehensive technical deployment guide and step-by-step user instructions.</p>
@@ -130,24 +203,28 @@
           <li><strong>Technical Writing:</strong> Authored zero-friction local server configuration manuals and step-by-step work instructions for non-technical users.</li>
         </ul>
         <div class="hero-buttons" style="margin-top: 1rem;">
-          <a href="https://github.com/Kurtyeet/Hotel-Reservation-Management-System" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;"><i class="fab fa-github"></i> View Source Code</a>
-          <a href="https://docs.google.com/document/d/13lJ1Rf5CxJHd9a6_gZCXbnWHrvoiM9DywrlONDlY8Xo/edit?usp=drive_link" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;"><i class="fas fa-file-pdf"></i> Download User &amp; Deployment SOP</a>
+          <a href="hotel-project.html" class="btn btn-gold" style="font-size: 0.85rem; padding: 0.5rem 1rem;"><i class="fas fa-eye"></i> View Case Study</a>
+          <a href="https://github.com/Kurtyeet/Hotel-Reservation-Management-System" target="_blank" rel="noopener" class="btn btn-outline-gold" style="font-size: 0.85rem; padding: 0.5rem 1rem;"><i class="fab fa-github"></i> Source Code</a>
+          <a href="https://docs.google.com/document/d/13lJ1Rf5CxJHd9a6_gZCXbnWHrvoiM9DywrlONDlY8Xo/edit?usp=drive_link" target="_blank" rel="noopener" class="btn btn-outline-gold" style="font-size: 0.85rem; padding: 0.5rem 1rem;"><i class="fas fa-file-pdf"></i> Documentation</a>
         </div>
       </div>
 
-      <div class="experience-card">
+      <div class="experience-card leave-themed" style="margin-bottom: 2rem;">
         <div class="exp-header">
-          <h3>Emergency Preparedness Software System</h3>
-          <p class="exp-meta">Systems Analyst &amp; Lead Documentarian</p>
+          <h3><i class="fas fa-leaf" style="margin-right: 8px;"></i>Employee Leave Management Portal</h3>
+          <p class="exp-meta">Full-Stack Developer &amp; Systems Architect</p>
         </div>
-        <p style="margin-bottom: 1rem; color: #555;">Collaborated on the architectural layout and comprehensive validation reporting for a high-utility community emergency response platform.</p>
+        <p style="margin-bottom: 1rem; color: #555;">Developed a comprehensive web-based leave management system featuring role-based access, multi-step approval workflows, real-time balance tracking, and audit logging for HR compliance. Backed by complete thesis documentation demonstrating academic research, UML/design proficiency, and testing methodology.</p>
         <ul style="margin-bottom: 1.5rem;">
-          <li><strong>Requirements Gathering:</strong> Structured functional requirements specifications and technical blueprints using comprehensive UML diagrams.</li>
-          <li><strong>Data Validation:</strong> Documented and evaluated system performance data gathered from 80 active testing respondents across functionality and usability metrics.</li>
-          <li><strong>Workflow Scripting:</strong> Created standard technical manuals and administrative protocols for real-time emergency broadcast updates.</li>
+          <li><strong>Role-Based Access:</strong> Four user roles (Employee, Supervisor, HR Admin, System Admin) with granular permissions and secure authentication.</li>
+          <li><strong>Approval Workflow:</strong> Multi-step leave approval process with comments, bulk actions, and real-time status tracking.</li>
+          <li><strong>Balance Management:</strong> Automatic leave balance calculation with Chart.js visualizations and CSV export capabilities.</li>
+          <li><strong>Technical Documentation:</strong> Complete thesis with UML diagrams, testing protocols, and evaluation methodology.</li>
         </ul>
         <div class="hero-buttons" style="margin-top: 1rem;">
-          <a href="YOUR_EMERGENCY_SYSTEM_LINK" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 0.85rem; padding: 0.5rem 1rem;"><i class="fas fa-file-alt"></i> View Case Study &amp; UML Diagrams</a>
+          <a href="leave-project.html" class="btn btn-green" style="font-size: 0.85rem; padding: 0.5rem 1rem;"><i class="fas fa-eye"></i> View Case Study</a>
+          <a href="https://github.com/Kurtyeet/Employee-Leave-Management-Portal" target="_blank" rel="noopener" class="btn btn-outline-green" style="font-size: 0.85rem; padding: 0.5rem 1rem;"><i class="fab fa-github"></i> Source Code</a>
+          <a href="https://docs.google.com/document/d/1Nn-U3aZB6GzjUNRFSWR6rVwd17wz7yJl/edit?usp=sharing&ouid=115107437378362780700&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn btn-outline-green" style="font-size: 0.85rem; padding: 0.5rem 1rem;"><i class="fas fa-file-pdf"></i> Documentation</a>
         </div>
       </div>
     </div>
@@ -213,6 +290,45 @@
           <li>Facilitated digital communication between the student body and administration, managing official announcements, documentation, and public relations copy.</li>
           <li>Leveraged technical IT background to optimize council workflows, utilizing Google Workspace to track project progress and student feedback.</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            <i class="fas fa-quote-left"></i>
+            <p>"John Kurt is a highly dedicated and skilled professional. His attention to detail and technical abilities made him an invaluable member of our team."</p>
+          </div>
+          <div class="testimonial-author">
+            <strong>College Publication Adviser</strong>
+            <span>College Publication, 2024-2026</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            <i class="fas fa-quote-left"></i>
+            <p>"His ability to manage large-scale initiatives while maintaining exceptional organizational skills demonstrates his readiness for professional challenges."</p>
+          </div>
+          <div class="testimonial-author">
+            <strong>Student Council Faculty Adviser</strong>
+            <span>Supreme Student Council, 2024-2026</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            <i class="fas fa-quote-left"></i>
+            <p>"John Kurt's thesis work on the Leave Management System showed excellent research methodology and technical documentation skills."</p>
+          </div>
+          <div class="testimonial-author">
+            <strong>Thesis Panel Chair</strong>
+            <span>JHCSC College, 2026</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
